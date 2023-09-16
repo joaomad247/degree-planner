@@ -70,17 +70,17 @@ export default function Courses() {
   return (
     <div className="flex flex-col items-center">
       {opened && openedData != null && (
-          <>
-            {/* Overlay */}
-            <div
-              className="fixed left-0 right-0 top-0 bottom-0 bg-black opacity-50"
-              onClick={closePopup}
-            ></div>
+        <>
+          {/* Overlay */}
+          <div
+            className="fixed left-0 right-0 top-0 bottom-0 bg-black opacity-50"
+            onClick={closePopup}
+          ></div>
 
-            {/* Popup */}
-            <Popup openedData={openedData} closePopup={closePopup} />
-          </>
-        )}
+          {/* Popup */}
+          <Popup openedData={openedData} closePopup={closePopup} />
+        </>
+      )}
       <div className="font-bold text-[40px] pt-[80px]">Courses</div>
       <div className=" w-1/2 border-2 border-grey-400 px-2 py-4 rounded-full my-[80px] flex">
         <div className="px-3">
@@ -104,11 +104,14 @@ export default function Courses() {
         ></input>
       </div>
 
-      <div className="mb-[200px]">
-        {results.length != 0 ? (
-          <div>
+      <div className="mb-20">
+        {results.length !== 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ml-10 mr-10">
             {results.map((c) => (
-              <div key={c.id} onClick={() => handleClick(c)}>
+              <div
+                key={c.id}
+                onClick={() => handleClick(c)}
+              >
                 <CourseBlock
                   code={c.course_code}
                   name={c.title}
